@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4 text-primary fw-bold">💰 Personal Expense Tracker</h2>
+
+        <div class="row">
+            <!-- Add Expense Form -->
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm p-3">
+                    <h5 class="card-title mb-3">Add New Expense</h5>
+                    <form id="expenseForm">
+                        <div class="mb-3">
+                            <label class="form-label">Title / Description</label>
+                            <input type="text" id="title" class="form-control" required placeholder="e.g., Morning Coffee">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Amount ($)</label>
+                            <input type="number" step="0.01" id="amount" class="form-control" required placeholder="0.00">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Category</label>
+                            <select id="category" class="form-select" required>
+                                <option value="Food">Food</option>
+                                <option value="Transport">Transport</option>
+                                <option value="Bills">Bills</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Add Expense</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Expense Table -->
+            <div class="col-md-8">
+                <div class="card shadow-sm p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="card-title m-0">Expense List</h5>
+                        <h4 class="text-success m-0">Total: <span id="totalAmount">0.00</span> $</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Amount</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expenseTableBody">
+                                <!-- Data will be populated here dynamically via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="app.js"></script>
+</body>
+</html>
